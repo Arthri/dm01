@@ -15,9 +15,9 @@ public class CSharpIncrementalSourceGeneratorVerifier<TSourceGenerator>
             ReferenceAssemblies = ReferenceAssemblies.Net.Net70;
         }
 
-        protected override IEnumerable<ISourceGenerator> GetSourceGenerators()
+        protected override IEnumerable<Type> GetSourceGenerators()
         {
-            return new[] { new TSourceGenerator().AsSourceGenerator() };
+            return new[] { typeof(TSourceGenerator) };
         }
 
         protected override ParseOptions CreateParseOptions()
